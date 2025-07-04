@@ -1,0 +1,611 @@
+[
+    {
+        "name": "草料二维码",
+        "description": "国内领先的二维码生成与管理服务。",
+        "category": "常用工具",
+        "icon_class": "fas fa-qrcode",
+        "embed_url": "https://cli.im/"
+    },
+    {
+        "name": "奶牛快传",
+        "description": "无需注册，在线大文件传输服务。",
+        "category": "常用工具",
+        "icon_class": "fas fa-paper-plane",
+        "embed_url": "https://cowtransfer.com/"
+    },
+    {
+        "name": "百度翻译",
+        "description": "支持多种语言的在线翻译服务。",
+        "category": "常用工具",
+        "icon_class": "fas fa-language",
+        "embed_url": "https://fanyi.baidu.com/"
+    },
+    {
+        "name": "高德地图",
+        "description": "专业的在线地图、路线规划和地点查询。",
+        "category": "常用工具",
+        "icon_class": "fas fa-map-marked-alt",
+        "embed_url": "https://www.amap.com/"
+    },
+    {
+        "name": "墨迹天气",
+        "description": "提供精准的天气预报和生活指数。",
+        "category": "常用工具",
+        "icon_class": "fas fa-cloud-sun-rain",
+        "embed_url": "https://tianqi.moji.com/"
+    },
+    {
+        "name": "在线单位转换",
+        "description": "全面的长度、重量、面积等单位换算。",
+        "category": "常用工具",
+        "icon_class": "fas fa-balance-scale-right",
+        "embed_url": "https://www.tool.lu/unit/"
+    },
+    {
+        "name": "临时邮箱",
+        "description": "获取一个临时邮箱用于注册和接收邮件。",
+        "category": "常用工具",
+        "icon_class": "fas fa-envelope-open-text",
+        "embed_url": "https://bccto.me/"
+    },
+    {
+        "name": "在线PS",
+        "description": "功能强大的网页版PhotoShop工具。",
+        "category": "常用工具",
+        "icon_class": "fas fa-magic",
+        "embed_url": "https://www.photopea.com/"
+    },
+    {
+        "name": "菜鸟教程",
+        "description": "学习编程和Web技术的免费教程库。",
+        "category": "常用工具",
+        "icon_class": "fas fa-book",
+        "embed_url": "https://www.runoob.com/"
+    },
+    {
+        "name": "全历史",
+        "description": "以时空关系聚合知识，可视化历史事件。",
+        "category": "常用工具",
+        "icon_class": "fas fa-landmark",
+        "embed_url": "https://www.allhistory.com/"
+    },
+    {
+        "name": "PDF24 Tools",
+        "description": "免费的PDF合并、转换、编辑在线工具集。",
+        "category": "常用工具",
+        "icon_class": "fas fa-file-pdf",
+        "embed_url": "https://tools.pdf24.org/zh/"
+    },
+    {
+        "name": "大力盘搜索",
+        "description": "聚合网盘资源搜索，查找学习资料。",
+        "category": "常用工具",
+        "icon_class": "fas fa-search",
+        "embed_url": "https://www.dalipan.com/"
+    },
+    {
+        "name": "在线工具",
+        "description": "一个包含各种实用小工具的集合网站。",
+        "category": "常用工具",
+        "icon_class": "fas fa-toolbox",
+        "embed_url": "https://tool.lu/"
+    },
+    {
+        "name": "中国色",
+        "description": "提供中国传统颜色的名称和色值。",
+        "category": "常用工具",
+        "icon_class": "fas fa-palette",
+        "embed_url": "http://zhongguose.com/"
+    },
+    {
+        "name": "历史价格查询",
+        "description": "淘宝/京东等电商平台历史价格走势。",
+        "category": "常用工具",
+        "icon_class": "fas fa-chart-line",
+        "embed_url": "https://www.gwdang.com/"
+    },
+    {
+        "name": "PPT超级市场",
+        "description": "免费下载高质量的PPT模板和图表。",
+        "category": "常用工具",
+        "icon_class": "fas fa-file-powerpoint",
+        "embed_url": "https://www.pptsupermarket.com/"
+    },
+    {
+        "name": "词根词缀词典",
+        "description": "通过词根词缀记忆和学习英语单词。",
+        "category": "常用工具",
+        "icon_class": "fas fa-spell-check",
+        "embed_url": "http://www.dicts.cn/"
+    },
+    {
+        "name": " emoji表情",
+        "description": "查找、复制和使用各种emoji表情符号。",
+        "category": "常用工具",
+        "icon_class": "fas fa-smile-beam",
+        "embed_url": "https://emojixd.com/"
+    },
+    {
+        "name": "小森平的音效",
+        "description": "免费下载各种场景的音效素材。",
+        "category": "常用工具",
+        "icon_class": "fas fa-volume-up",
+        "embed_url": "https://www.tosound.com/"
+    },
+    {
+        "name": "Gif搜索(SOOGIF)",
+        "description": "中文GIF动图搜索和制作平台。",
+        "category": "常用工具",
+        "icon_class": "fas fa-film",
+        "embed_url": "https://www.soogif.com/"
+    },
+    {
+        "name": "Kimi Chat",
+        "description": "月之暗面出品，支持长文本阅读和智能摘要。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-robot",
+        "embed_url": "https://kimi.moonshot.cn/"
+    },
+    {
+        "name": "文心一言",
+        "description": "百度出品的知识增强大语言模型。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-brain",
+        "embed_url": "https://yiyan.baidu.com/"
+    },
+    {
+        "name": "讯飞星火",
+        "description": "科大讯飞出品的认知大模型。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-fire",
+        "embed_url": "https://xinghuo.xfyun.cn/"
+    },
+    {
+        "name": "豆包",
+        "description": "字节跳动推出的AI智能助手。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-comment-dots",
+        "embed_url": "https://www.doubao.com/"
+    },
+    {
+        "name": "通义千问",
+        "description": "阿里巴巴达摩院研发的预训练语言模型。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-lightbulb",
+        "embed_url": "https://tongyi.aliyun.com/qianwen/"
+    },
+    {
+        "name": "智谱清言",
+        "description": "清华KEG实验室和智谱AI联合研发。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-atom",
+        "embed_url": "https://chatglm.cn/"
+    },
+    {
+        "name": "秘塔AI搜索",
+        "description": "没有广告、直达结果的AI搜索引擎。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-search-plus",
+        "embed_url": "https://metaso.cn/"
+    },
+    {
+        "name": "天工AI",
+        "description": "昆仑万维推出的多功能AI助手。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-gavel",
+        "embed_url": "https://www.tiangong.cn/"
+    },
+    {
+        "name": "AI PPT (WPS)",
+        "description": "输入主题，一键生成完整PPT。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-file-import",
+        "embed_url": "https://ai.wps.cn/ppt"
+    },
+    {
+        "name": "AI思维导图(boardmix)",
+        "description": "输入想法，AI自动生成思维导图结构",
+        "category": "AI 智能",
+        "icon_class": "fas fa-sitemap",
+        "embed_url": "https://boardmix.cn/ai-mindmap/"
+    },
+    {
+        "name": "秘塔写作猫",
+        "description": "AI驱动的文本校对、改写和润色工具。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-pen-fancy",
+        "embed_url": "https://xiezuocat.com/"
+    },
+    {
+        "name": "文心一格",
+        "description": "百度出品的AI艺术和创意辅助平台。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-paint-brush",
+        "embed_url": "https://yige.baidu.com/"
+    },
+    {
+        "name": "无界AI",
+        "description": "集成了多种模型的AI绘画创作工具。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-image",
+        "embed_url": "https://www.wujieai.com/"
+    },
+    {
+        "name": "通义万相",
+        "description": "阿里出品的AI绘画创作模型。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-images",
+        "embed_url": "https://tongyi.aliyun.com/wanxiang"
+    },
+    {
+        "name": "Tonic",
+        "description": "一个能帮你构思故事、生成图像的AI工具。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-drafting-compass",
+        "embed_url": "https://tonic.surf/"
+    },
+    {
+        "name": "DeepL",
+        "description": "基于AI的、翻译质量极高的翻译器。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-retweet",
+        "embed_url": "https://www.deepl.com/translator"
+    },
+    {
+        "name": "火山翻译",
+        "description": "字节跳动出品的机器翻译服务。",
+        "category": "AI 智能",
+        "icon_class": "fab fa-vimeo-v",
+        "embed_url": "https://translate.volcengine.com/"
+    },
+    {
+        "name": "Suno AI",
+        "description": "输入歌词或主题，AI生成完整歌曲。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-music",
+        "embed_url": "https://www.suno.ai/"
+    },
+    {
+        "name": "AI扣图(PicWish)",
+        "description": "AI一键移除图片背景，效果精准。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-eraser",
+        "embed_url": "https://picwish.cn/"
+    },
+    {
+        "name": "Devv AI",
+        "description": "专为开发者设计的AI搜索引擎。",
+        "category": "AI 智能",
+        "icon_class": "fas fa-terminal",
+        "embed_url": "https://devv.ai/"
+    },
+    {
+        "name": "JSON格式化",
+        "description": "JSON数据格式化、校验与压缩。",
+        "category": "开发&极客",
+        "icon_class": "fas fa-code",
+        "embed_url": "https://www.json.cn/"
+    },
+    {
+        "name": "ApiPost",
+        "description": "国产API设计、调试、文档、自动化工具。",
+        "category": "开发&极客",
+        "icon_class": "fas fa-rocket",
+        "embed_url": "https://www.apipost.cn/"
+    },
+    {
+        "name": "Gitee代码片段",
+        "description": "在Gitee上分享和发现代码片段。",
+        "category": "开发&极客",
+        "icon_class": "fab fa-git-alt",
+        "embed_url": "https://gitee.com/explore/snippets"
+    },
+    {
+        "name": "正则表达式测试",
+        "description": "在线测试和调试正则表达式。",
+        "category": "开发&极客",
+        "icon_class": "fas fa-asterisk",
+        "embed_url": "https://tool.oschina.net/regex"
+    },
+    {
+        "name": "Crontab生成",
+        "description": "简单易用地生成crontab定时任务表达式。",
+        "category": "开发&极客",
+        "icon_class": "fas fa-clock",
+        "embed_url": "https://tool.lu/crontab/"
+    },
+    {
+        "name": "UUID生成器",
+        "description": "在线生成通用唯一识别码。",
+        "category": "开发&极客",
+        "icon_class": "fas fa-cogs",
+        "embed_url": "https://www.tool.lu/uuid/"
+    },
+    {
+        "name": "代码运行(菜鸟)",
+        "description": "在线运行多种语言的代码片段。",
+        "category": "开发&极客",
+        "icon_class": "fas fa-play",
+        "embed_url": "https://www.runoob.com/try/runcode.php"
+    },
+    {
+        "name": "即时设计",
+        "description": "国产专业级UI/UX设计工具，对标Figma。",
+        "category": "设计&创意",
+        "icon_class": "fab fa-figma",
+        "embed_url": "https://js.design/"
+    },
+    {
+        "name": "iconfont",
+        "description": "阿里巴巴矢量图标库，资源丰富。",
+        "category": "设计&创意",
+        "icon_class": "fab fa-font-awesome-flag",
+        "embed_url": "https://www.iconfont.cn/"
+    },
+    {
+        "name": "稿定设计",
+        "description": "模板丰富的在线作图、视频剪辑工具。",
+        "category": "设计&创意",
+        "icon_class": "fas fa-paint-brush",
+        "embed_url": "https://www.gaoding.com/"
+    },
+    {
+        "name": "优设-色彩",
+        "description": "提供配色方案、渐变色和设计灵感。",
+        "category": "设计&创意",
+        "icon_class": "fas fa-palette",
+        "embed_url": "https://www.uisdc.com/color"
+    },
+    {
+        "name": "创客贴",
+        "description": "简单的在线图形设计工具，适合非设计师。",
+        "category": "设计&创意",
+        "icon_class": "fas fa-pencil-ruler",
+        "embed_url": "https://www.chuangkit.com/"
+    },
+    {
+        "name": "Pexels",
+        "description": "高质量、可免费商用的图片和视频库。",
+        "category": "设计&创意",
+        "icon_class": "fas fa-camera-retro",
+        "embed_url": "https://www.pexels.com/zh-cn/"
+    },
+    {
+        "name": "Favicon生成",
+        "description": "在线制作网站favicon.ico图标。",
+        "category": "设计&创意",
+        "icon_class": "fas fa-icons",
+        "embed_url": "https://tool.ico.la/"
+    },
+    {
+        "name": "ShapeDividers",
+        "description": "自定义创建各种SVG形状背景和分隔符。",
+        "category": "设计&创意",
+        "icon_class": "fas fa-shapes",
+        "embed_url": "https://www.shapedivider.app/"
+    },
+    {
+        "name": "ProcessOn",
+        "description": "支持流程图、思维导图的在线协作平台。",
+        "category": "办公&写作",
+        "icon_class": "fas fa-project-diagram",
+        "embed_url": "https://www.processon.com/"
+    },
+    {
+        "name": "腾讯文档",
+        "description": "支持多人协作的在线文档、表格和幻灯片。",
+        "category": "办公&写作",
+        "icon_class": "far fa-file-word",
+        "embed_url": "https://docs.qq.com/"
+    },
+    {
+        "name": "石墨文档",
+        "description": "中国第一款支持云端协作的企业办公服务软件。",
+        "category": "办公&写作",
+        "icon_class": "fas fa-pencil-alt",
+        "embed_url": "https://shimo.im/"
+    },
+    {
+        "name": "语雀",
+        "description": "优雅高效的在线文档编辑与协同工具。",
+        "category": "办公&写作",
+        "icon_class": "fas fa-book-reader",
+        "embed_url": "https://www.yuque.com/"
+    },
+    {
+        "name": "MDNICE",
+        "description": "支持自定义样式的Markdown在线编辑器。",
+        "category": "办公&写作",
+        "icon_class": "fab fa-markdown",
+        "embed_url": "https://www.mdnice.com/"
+    },
+    {
+        "name": "文本比对(jq22)",
+        "description": "在线比较两个文本或文件的差异。",
+        "category": "办公&写作",
+        "icon_class": "fas fa-not-equal",
+        "embed_url": "https://www.jq22.com/textdiff"
+    },
+    {
+        "name": "iLovePDF",
+        "description": "完全免费的PDF文件在线处理工具集合。",
+        "category": "办公&写作",
+        "icon_class": "fas fa-heart",
+        "embed_url": "https://www.ilovepdf.com/zh-cn"
+    },
+    {
+        "name": "XMind思维导图",
+        "description": "口碑极佳的思维导图和头脑风暴工具。",
+        "category": "办公&写作",
+        "icon_class": "fas fa-brain",
+        "embed_url": "https://www.xmind.cn/"
+    },
+     {
+        "name": "图片压缩(docsmall)",
+        "description": "智能压缩WEBP, PNG和JPEG图片。",
+        "category": "影音&图像",
+        "icon_class": "fas fa-compress-arrows-alt",
+        "embed_url": "https://docsmall.com/image-compress"
+    },
+    {
+        "name": "在线录屏",
+        "description": "无需下载，在线录制屏幕、摄像头。",
+        "category": "影音&图像",
+        "icon_class": "fas fa-dot-circle",
+        "embed_url": "https://www.apowersoft.cn/free-online-screen-recorder"
+    },
+    {
+        "name": "音频剪辑",
+        "description": "在线剪辑、合并和转换音频文件。",
+        "category": "影音&图像",
+        "icon_class": "fas fa-cut",
+        "embed_url": "https://audiotrimmer.com/zh/"
+    },
+    {
+        "name": "视频下载(Bilibili)",
+        "description": "解析并下载哔哩哔哩视频。",
+        "category": "影音&图像",
+        "icon_class": "fab fa-bilibili",
+        "embed_url": "https://www.jijidown.com/"
+    },
+    {
+        "name": "视频转GIF",
+        "description": "将视频文件或URL转换为GIF动图。",
+        "category": "影音&图像",
+        "icon_class": "fas fa-video",
+        "embed_url": "https://ezgif.com/video-to-gif"
+    },
+    {
+        "name": "多功能文件转换",
+        "description": "支持多种格式的音视频、文档和图片转换。",
+        "category": "影音&图像",
+        "icon_class": "fas fa-retweet",
+        "embed_url": "https://www.aconvert.com/cn/"
+    },
+    {
+        "name": "图片放大(bigjpg)",
+        "description": "使用AI对图片进行无损放大。",
+        "category": "影音&图像",
+        "icon_class": "fas fa-search-plus",
+        "embed_url": "https://bigjpg.com/"
+    },
+    {
+        "name": "SVGOMG",
+        "description": "在线压缩和优化SVG文件大小。",
+        "category": "影音&图像",
+        "icon_class": "fas fa-wind",
+        "embed_url": "https://jakearchibald.github.io/svgomg/"
+    },
+    {
+        "name": "百度指数",
+        "description": "查看关键词在百度的搜索规模和趋势。",
+        "category": "数据&财经",
+        "icon_class": "fas fa-chart-bar",
+        "embed_url": "https://index.baidu.com/"
+    },
+    {
+        "name": "微信指数",
+        "description": "基于微信大数据的移动端指数分析工具。",
+        "category": "数据&财经",
+        "icon_class": "fab fa-weixin",
+        "embed_url": "https://weixin.sogou.com/weixin?type=2&query=微信指数"
+    },
+    {
+        "name": "七麦数据",
+        "description": "专业的移动应用(App)市场数据分析平台。",
+        "category": "数据&财经",
+        "icon_class": "fas fa-mobile-alt",
+        "embed_url": "https://www.qimai.cn/"
+    },
+    {
+        "name": "国家数据",
+        "description": "国家统计局官方数据发布平台。",
+        "category": "数据&财经",
+        "icon_class": "fas fa-database",
+        "embed_url": "https://data.stats.gov.cn/"
+    },
+    {
+        "name": "雪球",
+        "description": "国内领先的投资者社区和交易平台。",
+        "category": "数据&财经",
+        "icon_class": "fas fa-chart-pie",
+        "embed_url": "https://xueqiu.com/"
+    },
+    {
+        "name": "东方财富网",
+        "description": "全面的财经、股票、行情、期货资讯。",
+        "category": "数据&财经",
+        "icon_class": "fas fa-dollar-sign",
+        "embed_url": "https://www.eastmoney.com/"
+    },
+    {
+        "name": "巨潮资讯网",
+        "description": "中国证监会指定的上市公司信息披露网站。",
+        "category": "数据&财经",
+        "icon_class": "fas fa-bullhorn",
+        "embed_url": "http://www.cninfo.com.cn/"
+    },
+    {
+        "name": "发现报告",
+        "description": "免费下载各行业的研究报告和分析。",
+        "category": "数据&财经",
+        "icon_class": "fas fa-file-alt",
+        "embed_url": "https://www.fxbaogao.com/"
+    },
+    {
+        "name": "天眼查",
+        "description": "查询企业信息、股东、工商信息等。",
+        "category": "生活&查询",
+        "icon_class": "fas fa-building",
+        "embed_url": "https://www.tianyancha.com/"
+    },
+    {
+        "name": "快递100",
+        "description": "查询国内外主流快递公司的物流信息。",
+        "category": "生活&查询",
+        "icon_class": "fas fa-shipping-fast",
+        "embed_url": "https://www.kuaidi100.com/"
+    },
+    {
+        "name": "12306",
+        "description": "中国铁路客户服务中心官方网站。",
+        "category": "生活&查询",
+        "icon_class": "fas fa-train",
+        "embed_url": "https://www.12306.cn/"
+    },
+    {
+        "name": "个税计算器",
+        "description": "在线计算个人所得税、年终奖等。",
+        "category": "生活&查询",
+        "icon_class": "fas fa-calculator",
+        "embed_url": "https://www.gerensuodeshui.cn/"
+    },
+    {
+        "name": "豆瓣",
+        "description": "查询和评价书籍、电影、音乐。",
+        "category": "生活&查询",
+        "icon_class": "fas fa-film",
+        "embed_url": "https://www.douban.com/"
+    },
+    {
+        "name": "什么值得买",
+        "description": "消费决策平台，发现优惠和好物。",
+        "category": "生活&查询",
+        "icon_class": "fas fa-shopping-cart",
+        "embed_url": "https://www.smzdm.com/"
+    },
+    {
+        "name": "下厨房",
+        "description": "中文菜谱最全的美食社区。",
+        "category": "生活&查询",
+        "icon_class": "fas fa-utensils",
+        "embed_url": "https://www.xiachufang.com/"
+    },
+    {
+        "name": "丁香医生",
+        "description": "可靠的医学健康信息查询平台。",
+        "category": "生活&查询",
+        "icon_class": "fas fa-heartbeat",
+        "embed_url": "https://dxy.com/"
+    }
+]

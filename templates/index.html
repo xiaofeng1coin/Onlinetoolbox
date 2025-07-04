@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>派大星工具集</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body data-theme="light">
+
+    <!-- 全局顶部固定栏 -->
+    <header class="top-header">
+        <div class="header-content">
+            <div class="header-left">
+                <i class="fas fa-cubes header-logo"></i>
+                <h1 class="header-title">派大星工具集</h1>
+            </div>
+            <div class="header-center">
+                <form id="unified-search-form" action="https://www.baidu.com/s" method="get" target="_blank" class="unified-search-form" data-mode="web">
+                    <i id="search-engine-icon" class="fab fa-baidu"></i>
+                    <input type="text" name="wd" class="search-input" placeholder="百度一下..." autocomplete="off">
+                    <button type="button" id="search-mode-toggle" class="search-mode-toggle" title="切换到工具筛选">
+                        <i class="fas fa-toolbox"></i>
+                    </button>
+                    <button type="submit" class="search-submit-button" aria-label="搜索"><i class="fas fa-arrow-right"></i></button>
+                </form>
+            </div>
+            <div class="header-right">
+                <!-- 关键：调整HTML结构以支持新布局 -->
+                <div class="header-info-container">
+                    <div class="main-greeting">
+                        <i id="greeting-icon" class="fas fa-sun"></i>
+                        <span id="header-greeting"></span>
+                    </div>
+                    <div class="datetime-block">
+                        <div id="current-time" class="time-line"></div>
+                        <div id="full-date" class="date-line"></div>
+                        <div id="daily-tip" class="tip-line"></div>
+                    </div>
+                </div>
+                <button id="settings-open" class="settings-open-button" aria-label="打开设置"><i class="fas fa-cog"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 页面主体容器 -->
+    <div class="page-body-container">
+        <!-- 左侧粘性导航栏 -->
+        <nav class="side-nav">
+            <ul>
+                {% for category in grouped_tools.keys() %}
+                <li>
+                    <a href="#category-{{ category | urlencode }}">
+                        <i class="fas nav-icon {% if '常用' in category %}fa-star{% elif '开发' in category %}fa-code{% elif '设计' in category %}fa-palette{% elif '媒体' in category %}fa-photo-film{% elif '学习' in category %}fa-book-open{% else %}fa-compass{% endif %}"></i>
+                        <span>{{ category }}</span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+
+        <!-- 主内容滚动区 -->
+        <main class="main-content">
+            {% for category, tools in grouped_tools.items() %}
+            <h2 class="category-title" id="category-{{ category | urlencode }}">{{ category }}</h2>
+            <div class="tool-grid">
+                {% for tool in tools %}
+                <div class="card" data-tool-id="{{ tool.name | urlencode }}" data-tool-name="{{ tool.name }}" data-tool-url="{{ tool.embed_url }}">
+                    <a href="{{ tool.embed_url }}" target="_blank" class="card-main-link">
+                        <div class="card-icon"><i class="{{ tool.icon_class | default('fas fa-question-circle') }}"></i></div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ tool.name }}</h5>
+                            <p class="card-text">{{ tool.description }}</p>
+                        </div>
+                    </a>
+                    <div class="card-actions">
+                        <div class="visit-count-display" title="访问次数"><i class="fas fa-eye"></i><span class="count-number">0</span></div>
+                        <button class="card-action-btn copy-link-btn" title="复制链接"><i class="fas fa-copy"></i></button>
+                        <button class="card-action-btn open-modal-btn" title="在页面内打开"><i class="fas fa-window-maximize"></i></button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </main>
+    </div>
+
+    <!-- 浮动弹窗 -->
+    <div id="tool-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="modal-title" class="modal-title-text">工具</h5>
+                <button id="modal-close" class="modal-close-button" aria-label="关闭">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="modal-iframe" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- 设置面板 -->
+    <div id="settings-panel" class="settings-panel">
+        <h3>个性化设置</h3>
+        <div class="setting-item">
+            <label for="theme-selector">界面主题</label>
+            <select id="theme-selector">
+                <option value="light">浅色模式</option>
+                <option value="dark">深色模式</option>
+            </select>
+        </div>
+        <div class="setting-item">
+            <label for="search-engine-selector">默认搜索引擎</label>
+            <select id="search-engine-selector">
+                <option value="baidu">百度搜索</option>
+                <option value="google">Google</option>
+                <option value="bing">必应</option>
+            </select>
+        </div>
+        <button id="settings-close" class="settings-close-button">关闭</button>
+    </div>
+
+    <button id="back-to-top" class="back-to-top-btn" title="返回顶部"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
