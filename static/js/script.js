@@ -2,24 +2,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- DOM 元素获取 ---
     const body = document.body;
+    const settingsPanel = document.getElementById('settings-panel');
+    const modal = document.getElementById('tool-modal');
+    const modalIframe = document.getElementById('modal-iframe');
+    const backToTopBtn = document.getElementById('back-to-top');
+    const categoryTitles = document.querySelectorAll('.main-content .category-title');
+
+    // 桌面端元素
+    const desktopHeader = document.querySelector('.top-header.desktop-only');
     const greetingEl = document.getElementById('header-greeting');
     const greetingIconEl = document.getElementById('greeting-icon');
     const timeEl = document.getElementById('current-time');
     const dateEl = document.getElementById('full-date');
     const tipEl = document.getElementById('daily-tip');
-    const searchForm = document.getElementById('unified-search-form');
-    const searchInput = searchForm.querySelector('.search-input');
-    const searchEngineIcon = document.getElementById('search-engine-icon');
-    const searchModeToggle = document.getElementById('search-mode-toggle');
-    const modal = document.getElementById('tool-modal');
-    const modalIframe = document.getElementById('modal-iframe');
-    const backToTopBtn = document.getElementById('back-to-top');
-    const settingsPanel = document.getElementById('settings-panel');
+    const desktopSearchForm = document.getElementById('unified-search-form');
+    const desktopSearchInput = desktopSearchForm?.querySelector('.search-input');
+    const desktopSearchEngineIcon = document.getElementById('search-engine-icon');
+    const desktopSearchModeToggle = document.getElementById('search-mode-toggle');
+    const sideNavLinks = document.querySelectorAll('.side-nav a');
+    const desktopSettingsBtn = document.getElementById('settings-open');
+
+    // 移动端元素
+    const mobileSearchForm = document.getElementById('mobile-search-form');
+    const mobileSearchInput = mobileSearchForm?.querySelector('.search-input');
+    const mobileSearchEngineIcon = document.getElementById('mobile-search-engine-icon');
+    const mobileSearchModeToggle = document.getElementById('mobile-search-mode-toggle');
+    const mobileBottomNavLinks = document.querySelectorAll('.mobile-bottom-nav a');
+    const mobileSettingsBtn = document.getElementById('mobile-settings-open');
+
     const toolCount = document.querySelectorAll('.main-content .card').length;
-    const topHeader = document.querySelector('.top-header');
-    const sideNav = document.querySelector('.side-nav');
-    const navLinks = document.querySelectorAll('.side-nav a');
-    const categoryTitles = document.querySelectorAll('.main-content .category-title');
 
     // --- 状态变量与核心对象 ---
     let currentSearchMode = 'web';
@@ -29,33 +40,19 @@ document.addEventListener('DOMContentLoaded', function() {
         google: { url: 'https://www.google.com/search', placeholder: 'Google 搜索', queryParam: 'q', icon: 'fab fa-google' },
         bing: { url: 'https://www.bing.com/search', placeholder: '必应搜索', queryParam: 'q', icon: 'fab fa-bing' }
     };
-    const dailyTips = [
-        "喝杯水，休息一下眼睛。",
-        "今天也是元气满满的一天！",
-        "保持专注，事半功倍。",
-        "一个任务一个任务地来。",
-        "别忘了站起来活动一下。",
-        "微小的进步，也是进步。",
-        "相信自己的潜力。",
-        "今天会是富有成效的一天。",
-        "代码总有调通的时候。",
-        "设计源于生活，高于生活。"
-    ];
+    const dailyTips = ["喝杯水，休息一下眼睛。", "今天也是元气满满的一天！", "保持专注，事半功倍。", "别忘了站起来活动一下。", "微小的进步，也是进步。"];
     const visitStats = {
         counts: {},
         load() { this.counts = JSON.parse(localStorage.getItem('toolVisitCounts')) || {}; },
         save() { localStorage.setItem('toolVisitCounts', JSON.stringify(this.counts)); },
-        add(toolId) {
-            this.counts[toolId] = (this.counts[toolId] || 0) + 1;
-            this.save();
-        }
+        add(toolId) { this.counts[toolId] = (this.counts[toolId] || 0) + 1; this.save(); }
     };
 
     // --- 核心功能函数 ---
     function initialize() {
         visitStats.load();
         loadSettings();
-        updateTimeAndGreeting();
+        updateTimeAndGreeting(); // 即使在移动端隐藏，也保持更新
         setInterval(updateTimeAndGreeting, 1000);
         displayDailyTip();
         setupEventListeners();
@@ -63,39 +60,21 @@ document.addEventListener('DOMContentLoaded', function() {
         onScroll();
     }
 
-    function displayDailyTip() {
-        if (!tipEl) return;
-        const randomIndex = Math.floor(Math.random() * dailyTips.length);
-        tipEl.textContent = `“${dailyTips[randomIndex]}”`;
-    }
-
+    function displayDailyTip() { if (tipEl) tipEl.textContent = `“${dailyTips[Math.floor(Math.random() * dailyTips.length)]}”`; }
+    
     function updateTimeAndGreeting() {
         const now = new Date();
-
-        if (timeEl) {
-            timeEl.textContent = now.toLocaleTimeString('zh-CN', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        if (timeEl) timeEl.textContent = now.toLocaleTimeString('zh-CN', { hour12: false });
+        if (dateEl && dateEl.dataset.currentDate !== now.toLocaleDateString()) {
+            dateEl.textContent = `${now.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })} ${now.toLocaleDateString('zh-CN', { weekday: 'long' })}`;
+            dateEl.dataset.currentDate = now.toLocaleDateString();
         }
-
-        const currentDateStr = now.toLocaleDateString();
-        if (dateEl && dateEl.dataset.currentDate !== currentDateStr) {
-             const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-             const weekdayOptions = { weekday: 'long' };
-             dateEl.textContent = `${now.toLocaleDateString('zh-CN', dateOptions)} ${now.toLocaleDateString('zh-CN', weekdayOptions)}`;
-             dateEl.dataset.currentDate = currentDateStr;
-        }
-
         if (greetingEl) {
             const hour = now.getHours();
-            let greetingText = '晚上好';
-            let iconClass = 'fas fa-moon';
-
-            if (hour >= 5 && hour < 9) { greetingText = '早上好'; iconClass = 'fas fa-mug-hot'; }
-            else if (hour >= 9 && hour < 12) { greetingText = '上午好'; iconClass = 'fas fa-sun'; }
-            else if (hour >= 12 && hour < 14) { greetingText = '中午好'; iconClass = 'fas fa-utensils'; }
-            else if (hour >= 14 && hour < 18) { greetingText = '下午好'; iconClass = 'fas fa-sun'; }
-            else if (hour >= 18 && hour < 22) { greetingText = '傍晚好'; iconClass = 'fas fa-cloud-moon'; }
-            else { greetingText = '夜深了'; iconClass = 'fas fa-star'; }
-
+            let greetingText, iconClass;
+            if (hour >= 5 && hour < 12) { greetingText = '上午好'; iconClass = 'fas fa-sun'; }
+            else if (hour >= 12 && hour < 18) { greetingText = '下午好'; iconClass = 'fas fa-cloud-sun'; }
+            else { greetingText = '晚上好'; iconClass = 'fas fa-moon'; }
             greetingEl.textContent = greetingText;
             if (greetingIconEl) greetingIconEl.className = iconClass;
         }
@@ -121,14 +100,49 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function applySearchEngine(engine) {
-        if (currentSearchMode === 'web') {
-            const config = searchEngines[engine];
-            searchForm.action = config.url;
-            searchInput.name = config.queryParam;
-            searchInput.placeholder = config.placeholder;
-            searchEngineIcon.className = config.icon;
-        }
         settings.searchEngine = engine;
+        updateSearchUI();
+    }
+    
+    function updateSearchUI() {
+        if (currentSearchMode === 'web') {
+            const config = searchEngines[settings.searchEngine];
+            const placeholder = config.placeholder;
+            const action = config.url;
+            const queryParam = config.queryParam;
+            const icon = config.icon;
+            
+            // 同步更新桌面和移动端搜索框
+            if (desktopSearchForm) {
+                desktopSearchForm.action = action;
+                desktopSearchInput.name = queryParam;
+                desktopSearchInput.placeholder = placeholder;
+                desktopSearchEngineIcon.className = icon;
+                desktopSearchModeToggle.innerHTML = '<i class="fas fa-toolbox"></i>';
+            }
+            if(mobileSearchForm) {
+                mobileSearchForm.action = action;
+                mobileSearchInput.name = queryParam;
+                mobileSearchInput.placeholder = placeholder;
+                mobileSearchEngineIcon.className = icon;
+                mobileSearchModeToggle.innerHTML = '<i class="fas fa-toolbox"></i>';
+            }
+
+        } else { // tool search mode
+            const placeholder = `在 ${toolCount} 个工具中筛选...`;
+            const icon = 'fas fa-search';
+
+            if(desktopSearchForm) {
+                desktopSearchInput.placeholder = placeholder;
+                desktopSearchEngineIcon.className = icon;
+                desktopSearchModeToggle.innerHTML = '<i class="fas fa-globe-asia"></i>';
+            }
+             if(mobileSearchForm) {
+                mobileSearchInput.placeholder = placeholder;
+                mobileSearchEngineIcon.className = icon;
+                mobileSearchModeToggle.innerHTML = '<i class="fas fa-globe-asia"></i>';
+            }
+        }
     }
 
     function updateAllVisitCounts() {
@@ -142,23 +156,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function toggleSearchMode() {
         currentSearchMode = (currentSearchMode === 'web') ? 'tool' : 'web';
-        searchInput.value = '';
+        if(desktopSearchInput) desktopSearchInput.value = '';
+        if(mobileSearchInput) mobileSearchInput.value = '';
         updateSearchUI();
         handleFilter('');
-    }
-
-    function updateSearchUI() {
-        if (currentSearchMode === 'web') {
-            applySearchEngine(settings.searchEngine);
-            searchForm.target = '_blank';
-            searchModeToggle.innerHTML = '<i class="fas fa-toolbox"></i>';
-        } else {
-            searchInput.name = 'q_tool';
-            searchInput.placeholder = `在 ${toolCount} 个工具中筛选...`;
-            searchEngineIcon.className = 'fas fa-search';
-            searchForm.target = '_self';
-            searchModeToggle.innerHTML = '<i class="fas fa-globe-asia"></i>';
-        }
     }
 
     function handleFilter(searchTerm) {
@@ -166,11 +167,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('h2.category-title').forEach(title => {
             const grid = title.nextElementSibling;
             let categoryHasVisibleCard = false;
-            if (grid) {
+            if (grid && grid.classList.contains('tool-grid')) {
                 grid.querySelectorAll('.card').forEach(card => {
                     const toolName = card.dataset.toolName.toLowerCase();
-                    const description = card.querySelector('.card-text').textContent.toLowerCase();
-                    const isVisible = toolName.includes(term) || description.includes(term);
+                    const isVisible = toolName.includes(term);
                     card.style.display = isVisible ? 'flex' : 'none';
                     if(isVisible) categoryHasVisibleCard = true;
                 });
@@ -178,7 +178,28 @@ document.addEventListener('DOMContentLoaded', function() {
             title.style.display = categoryHasVisibleCard || !term ? 'block' : 'none';
         });
     }
+    
+    function onScroll() {
+        let currentCategoryId = '';
+        const offset = window.innerHeight * 0.3; // 视口30%处为激活线
 
+        categoryTitles.forEach(title => {
+            if (title.getBoundingClientRect().top <= offset) {
+                currentCategoryId = title.id;
+            }
+        });
+
+        // 同时更新桌面和移动端导航高亮
+        sideNavLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${currentCategoryId}`);
+        });
+        mobileBottomNavLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${currentCategoryId}`);
+        });
+        
+        if (backToTopBtn) backToTopBtn.classList.toggle('visible', window.scrollY > 300);
+    }
+    
     function handleCardInteraction(e) {
         const card = e.target.closest('.card');
         if (!card) return;
@@ -209,37 +230,37 @@ document.addEventListener('DOMContentLoaded', function() {
             body.classList.add('modal-open');
         }
     }
-
-    function onScroll() {
-        if (sideNav) {
-            const headerHeight = topHeader ? topHeader.offsetHeight : 0;
-            const offset = headerHeight + 40;
-            let currentCategoryId = '';
-            categoryTitles.forEach(title => {
-                if (title.getBoundingClientRect().top <= offset) {
-                    currentCategoryId = title.id;
-                }
-            });
-            navLinks.forEach(link => {
-                link.classList.toggle('active', link.getAttribute('href') === `#${currentCategoryId}`);
-            });
-        }
-        backToTopBtn.classList.toggle('visible', window.scrollY > 300);
+    
+    function openSettings() {
+        if(settingsPanel) settingsPanel.classList.add('open');
     }
-
+    
     function setupEventListeners() {
-        document.getElementById('settings-open').addEventListener('click', () => settingsPanel.classList.add('open'));
+        if(desktopSettingsBtn) desktopSettingsBtn.addEventListener('click', openSettings);
+        if(mobileSettingsBtn) mobileSettingsBtn.addEventListener('click', openSettings);
         document.getElementById('settings-close').addEventListener('click', () => settingsPanel.classList.remove('open'));
+
         document.getElementById('theme-selector').addEventListener('change', (e) => { applyTheme(e.target.value); saveSettings(); });
         document.getElementById('search-engine-selector').addEventListener('change', (e) => { applySearchEngine(e.target.value); saveSettings(); });
-        searchModeToggle.addEventListener('click', toggleSearchMode);
-        searchInput.addEventListener('input', () => { if (currentSearchMode === 'tool') handleFilter(searchInput.value); });
-        searchForm.addEventListener('submit', e => { if (currentSearchMode === 'tool') e.preventDefault(); });
+        
+        if(desktopSearchModeToggle) desktopSearchModeToggle.addEventListener('click', toggleSearchMode);
+        if(mobileSearchModeToggle) mobileSearchModeToggle.addEventListener('click', toggleSearchMode);
+
+        const filterHandler = (e) => { if (currentSearchMode === 'tool') handleFilter(e.target.value); };
+        if(desktopSearchInput) desktopSearchInput.addEventListener('input', filterHandler);
+        if(mobileSearchInput) mobileSearchInput.addEventListener('input', filterHandler);
+
+        const submitBlocker = (e) => { if (currentSearchMode === 'tool') e.preventDefault(); };
+        if(desktopSearchForm) desktopSearchForm.addEventListener('submit', submitBlocker);
+        if(mobileSearchForm) mobileSearchForm.addEventListener('submit', submitBlocker);
+
         document.querySelector('.main-content').addEventListener('click', handleCardInteraction);
+        
         document.getElementById('modal-close').addEventListener('click', () => { modal.classList.remove('visible'); body.classList.remove('modal-open'); modalIframe.src = 'about:blank'; });
         modal.addEventListener('click', e => { if (e.target === modal) { modal.classList.remove('visible'); body.classList.remove('modal-open'); modalIframe.src = 'about:blank'; } });
+        
         window.addEventListener('scroll', onScroll, { passive: true });
-        backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        if(backToTopBtn) backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
 
     initialize();
