@@ -2,15 +2,15 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>派大星工具集</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body data-theme="light">
 
-    <!-- 全局顶部固定栏 -->
-    <header class="top-header">
+    <!-- 桌面端: 全局顶部固定栏 -->
+    <header class="top-header desktop-only">
         <div class="header-content">
             <div class="header-left">
                 <i class="fas fa-cubes header-logo"></i>
@@ -27,7 +27,6 @@
                 </form>
             </div>
             <div class="header-right">
-                <!-- 关键：调整HTML结构以支持新布局 -->
                 <div class="header-info-container">
                     <div class="main-greeting">
                         <i id="greeting-icon" class="fas fa-sun"></i>
@@ -44,15 +43,32 @@
         </div>
     </header>
 
+    <!-- 移动端: 全局顶部固定栏 -->
+    <header class="mobile-header mobile-only">
+        <h1 class="mobile-title">派大星工具集</h1>
+        <button id="mobile-settings-open" class="mobile-settings-button" aria-label="打开设置"><i class="fas fa-cog"></i></button>
+    </header>
+     <!-- 移动端: 搜索栏 -->
+    <div class="mobile-search-wrapper mobile-only">
+         <form id="mobile-search-form" action="https://www.baidu.com/s" method="get" target="_blank" class="unified-search-form" data-mode="web">
+            <i id="mobile-search-engine-icon" class="fab fa-baidu"></i>
+            <input type="text" name="wd" class="search-input" placeholder="百度一下..." autocomplete="off">
+            <button type="button" id="mobile-search-mode-toggle" class="search-mode-toggle" title="切换到工具筛选">
+                <i class="fas fa-toolbox"></i>
+            </button>
+        </form>
+    </div>
+
+
     <!-- 页面主体容器 -->
     <div class="page-body-container">
-        <!-- 左侧粘性导航栏 -->
-        <nav class="side-nav">
+        <!-- 桌面端: 左侧粘性导航栏 -->
+        <nav class="side-nav desktop-only">
             <ul>
                 {% for category in grouped_tools.keys() %}
                 <li>
                     <a href="#category-{{ category | urlencode }}">
-                        <i class="fas nav-icon {% if '常用' in category %}fa-star{% elif '开发' in category %}fa-code{% elif '设计' in category %}fa-palette{% elif '媒体' in category %}fa-photo-film{% elif '学习' in category %}fa-book-open{% else %}fa-compass{% endif %}"></i>
+                        <i class="fas nav-icon {% if 'AI' in category %}fa-robot{% elif '常用' in category %}fa-star{% elif '开发' in category %}fa-code{% elif '设计' in category %}fa-palette{% elif '办公' in category %}fa-file-word{% elif '影音' in category %}fa-photo-film{% else %}fa-compass{% endif %}"></i>
                         <span>{{ category }}</span>
                     </a>
                 </li>
@@ -86,7 +102,7 @@
         </main>
     </div>
 
-    <!-- 浮动弹窗 -->
+    <!-- 浮动弹窗 (共用) -->
     <div id="tool-modal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -99,7 +115,7 @@
         </div>
     </div>
 
-    <!-- 设置面板 -->
+    <!-- 设置面板 (共用) -->
     <div id="settings-panel" class="settings-panel">
         <h3>个性化设置</h3>
         <div class="setting-item">
@@ -120,7 +136,19 @@
         <button id="settings-close" class="settings-close-button">关闭</button>
     </div>
 
+    <!-- 返回顶部 (共用) -->
     <button id="back-to-top" class="back-to-top-btn" title="返回顶部"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- 移动端: 底部导航栏 -->
+    <nav class="mobile-bottom-nav mobile-only">
+        {% for category in grouped_tools.keys() %}
+        <a href="#category-{{ category | urlencode }}" class="mobile-nav-item">
+            <i class="fas nav-icon {% if 'AI' in category %}fa-robot{% elif '常用' in category %}fa-star{% elif '开发' in category %}fa-code{% elif '设计' in category %}fa-palette{% elif '办公' in category %}fa-file-word{% elif '影音' in category %}fa-photo-film{% else %}fa-compass{% endif %}"></i>
+            <span>{{ category.split('&')[0] }}</span>
+        </a>
+        {% endfor %}
+    </nav>
+
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
